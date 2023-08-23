@@ -1,0 +1,69 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class Node {
+    public :
+    int val;
+    Node* left;
+    Node* right;
+
+    Node(int data) {
+        val = data;
+    }
+};
+
+//INORDER TRAVERSAL
+
+void inorder(Node* node) {
+    if(node == NULL) {
+        return ;
+    }
+
+    inorder(node->left);
+    cout<<node->val<<" ";
+    inorder(node->right);
+}
+//PREORDER TRAVERSAL
+
+void preorder(Node* node) {
+    if(node == NULL) {
+        return ;
+    }
+
+    cout<<node->val<<" ";
+    preorder(node->left);
+    preorder(node->right);
+}
+
+//POSTORDER TRAVERSAL
+
+void postorder(Node* node) {
+    if(node == NULL) {
+        return ;
+    }
+
+    postorder(node->left);
+    postorder(node->right);
+    cout<<node->val<<" ";
+}
+
+
+int main() {
+
+    Node* head = new Node(1);
+    head->left = new Node(2);
+    head->right = new Node(3);
+    head->left->left = new Node(4);
+    head->right->left = new Node(6);
+    head->left->right = new Node(5);
+    head->right->right = new Node(7);
+
+
+    inorder(head);
+    cout<<endl;
+    preorder(head);
+    cout<<endl;
+    postorder(head);
+
+return 0;
+}
